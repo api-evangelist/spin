@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/spin/json-schema/spin-manifest.json",
+  "title": "Spin Application Manifest",
+  "description": "JSON Schema for the spin.toml application manifest file that defines a Spin WebAssembly application.",
+  "type": "object",
+  "required": ["spin_manifest_version", "application"],
+  "properties": {
+    "spin_manifest_version": {
+      "type": "integer",
+      "enum": [2],
+      "description": "Version of the Spin manifest format."
+    },
+    "application": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Application name."
+        },
+        "version": {
+          "type": "string",
+          "description": "Application version (semver)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Application description."
+        },
+        "authors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Application authors."
+        },
+        "trigger": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "base": {
+                  "type": "string",
+                  "default": "/",
+                  "description": "Base path for all HTTP triggers."
+                }
+              }
+            },
+            "redis": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string",
+                  "description": "Redis server address."
+                }
+              }
+            }
+          },
+          "description": "Application-level trigger configuration."
+        }
+      }
+    },
+    "variables": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "required": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether the variable is required."
+          },
+          "default": {
+            "type": "string",
+            "description": "Default value for the variable."
+          },
+          "secret": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether the variable is a secret."
+          }
+        }
+      },
+      "description": "Application variables."
+    },
+    "component": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/Component"
+      },
+      "description": "Named component definitions."
+    }
+  },
+  "$defs": {
+    "Component": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Path to the Wasm module or OCI reference."
+        },
+        "description": {
+          "type": "string",
+          "description": "Component description."
+        },
+        "allowed_outbound_hosts": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of allowed outbound hosts."
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "type": "string" },
+              {
+                "type": "object",
+                "properties": {
+                  "source": { "type": "string" },
+                  "destination": { "type": "string" }
+                }
+              }
+            ]
+          },
+          "description": "Files to mount in the component."
+        },
+        "key_value_stores": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key-value stores accessible to this component."
+        },
+        "sqlite_databases": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "SQLite databases accessible to this component."
+        },
+        "ai_models": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "AI models accessible to this component."
+        },
+        "variables": {
+          "type": "object",
+          "additionalProperties": { "type": "string" },
+          "description": "Variable bindings for this component."
+        },
+        "build": {
+          "type": "object",
+          "properties": {
+            "command": {
+              "type": "string",
+              "description": "Build command."
+            },
+            "workdir": {
+              "type": "string",
+              "description": "Working directory for the build command."
+            },
+            "watch": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "File patterns to watch for rebuilds."
+            }
+          }
+        },
+        "trigger": {
+          "type": "object",
+          "properties": {
+            "http": {
+              "type": "object",
+              "properties": {
+                "route": {
+                  "type": "string",
+                  "description": "HTTP route pattern (e.g., /api/...)."
+                }
+              }
+            },
+            "redis": {
+              "type": "object",
+              "properties": {
+                "channel": {
+                  "type": "string",
+                  "description": "Redis channel to subscribe to."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

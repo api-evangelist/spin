@@ -19,7 +19,10 @@ apis:
     humanURL: https://www.fermyon.com/spin
     tags:
       - Microservices
-    properties: []
+    properties:
+      - type: JSONSchema
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/spin/refs/heads/main/json-schema/spin-manifest.json
 common:
   - type: Website
     url: https://www.fermyon.com/spin
