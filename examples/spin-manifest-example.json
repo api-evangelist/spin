@@ -1,0 +1,45 @@
+{
+  "description": "Example Spin application manifest (spin.toml equivalent in JSON) for an HTTP API application with key-value storage and AI model access",
+  "manifest": {
+    "spin_manifest_version": 2,
+    "application": {
+      "name": "hello-spin",
+      "version": "1.0.0",
+      "description": "A simple HTTP API built with Spin WebAssembly",
+      "authors": ["developer@example.com"]
+    },
+    "variables": {
+      "api_key": {
+        "required": true,
+        "secret": true
+      },
+      "environment": {
+        "required": false,
+        "default": "production"
+      }
+    },
+    "component": {
+      "api": {
+        "source": "target/wasm32-wasi/release/api.wasm",
+        "description": "HTTP API handler component",
+        "allowed_outbound_hosts": ["https://api.example.com"],
+        "key_value_stores": ["default"],
+        "ai_models": ["llama2-chat"],
+        "variables": {
+          "api_key": "{{api_key}}",
+          "env": "{{environment}}"
+        },
+        "trigger": {
+          "http": {
+            "route": "/api/..."
+          }
+        },
+        "build": {
+          "command": "cargo build --target wasm32-wasi --release",
+          "workdir": ".",
+          "watch": ["src/**/*.rs", "Cargo.toml"]
+        }
+      }
+    }
+  }
+}

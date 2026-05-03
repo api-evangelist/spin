@@ -1,0 +1,41 @@
+{
+  "title": "Spin Application Manifest Structure",
+  "description": "JSON Structure document for the Spin WebAssembly application manifest (spin.toml), describing the data model for configuring Spin applications.",
+  "type": "object",
+  "fields": [
+    { "name": "spin_manifest_version", "type": "integer", "required": true, "description": "Manifest version (currently 2)" },
+    { "name": "application", "type": "object", "required": true, "description": "Application-level configuration" },
+    { "name": "variables", "type": "object", "required": false, "description": "Application variables map" }
+  ],
+  "relatedTypes": [
+    {
+      "name": "Application",
+      "fields": [
+        { "name": "name", "type": "string", "required": true, "description": "Application name" },
+        { "name": "version", "type": "string", "required": false, "description": "Application version (semver)" },
+        { "name": "description", "type": "string", "required": false, "description": "Application description" },
+        { "name": "authors", "type": "array[string]", "required": false, "description": "Application authors" }
+      ]
+    },
+    {
+      "name": "Component",
+      "fields": [
+        { "name": "source", "type": "string", "required": false, "description": "Path to Wasm module or OCI reference" },
+        { "name": "description", "type": "string", "required": false, "description": "Component description" },
+        { "name": "allowed_outbound_hosts", "type": "array[string]", "required": false, "description": "Allowed outbound HTTP hosts" },
+        { "name": "key_value_stores", "type": "array[string]", "required": false, "description": "Key-value stores accessible to component" },
+        { "name": "sqlite_databases", "type": "array[string]", "required": false, "description": "SQLite databases accessible to component" },
+        { "name": "ai_models", "type": "array[string]", "required": false, "description": "AI models accessible to component" },
+        { "name": "variables", "type": "object", "required": false, "description": "Variable bindings for this component" }
+      ]
+    },
+    {
+      "name": "Variable",
+      "fields": [
+        { "name": "required", "type": "boolean", "required": false, "description": "Whether the variable is required" },
+        { "name": "default", "type": "string", "required": false, "description": "Default value" },
+        { "name": "secret", "type": "boolean", "required": false, "description": "Whether the variable is a secret" }
+      ]
+    }
+  ]
+}

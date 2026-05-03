@@ -1,0 +1,129 @@
+vocabulary:
+  name: Spin Vocabulary
+  description: >-
+    Domain vocabulary for the Spin WebAssembly application framework by Fermyon,
+    covering application manifest configuration, component architecture, trigger types,
+    storage APIs, and cloud deployment terminology.
+  version: "1.0"
+  created: "2026-05-02"
+  modified: "2026-05-02"
+  tags:
+    - WebAssembly
+    - Microservices
+    - Serverless
+    - Fermyon
+
+terms:
+  - term: Spin
+    definition: >-
+      An open-source framework by Fermyon for building and running fast, secure, and
+      composable cloud microservices using WebAssembly. Spin provides a developer
+      experience for building event-driven serverless applications that compile to Wasm.
+    synonyms: [Spin Framework, Fermyon Spin]
+    related: [WebAssembly, Component, Trigger]
+
+  - term: Component
+    definition: >-
+      The fundamental unit of a Spin application — a single WebAssembly module that
+      handles a specific type of event (HTTP request, Redis message, cron job).
+      Components are isolated, stateless, and have explicit access grants for
+      outbound requests and storage.
+    synonyms: [Wasm Component, Module]
+    related: [Trigger, Source, Application]
+
+  - term: Application
+    definition: >-
+      A collection of one or more Spin components described in a spin.toml manifest file.
+      Applications define the component sources, triggers, variables, and resource
+      access grants. Applications are deployed as OCI artifacts.
+    synonyms: [Spin App]
+    related: [Component, Manifest, spin.toml]
+
+  - term: Trigger
+    definition: >-
+      The event source that invokes a Spin component. Supported triggers include
+      HTTP (incoming HTTP requests), Redis (pub/sub messages), and Cron (scheduled
+      execution). Each component declares its trigger type and routing configuration.
+    values: [http, redis, cron]
+    related: [Component, Route, Channel]
+
+  - term: spin.toml
+    definition: >-
+      The TOML-format application manifest file that defines a Spin application's
+      components, triggers, variables, and resource access configuration.
+      spin_manifest_version 2 is the current format version.
+    synonyms: [Manifest, Application Manifest]
+    related: [Application, Component, Variable]
+
+  - term: WebAssembly
+    definition: >-
+      A portable binary instruction format that provides a sandboxed execution
+      environment for code compiled from languages like Rust, Go, Python, and C.
+      Spin uses WebAssembly (specifically WASI) as its runtime substrate for
+      secure, isolated component execution.
+    synonyms: [Wasm, WASM]
+    related: [WASI, Component, Sandbox]
+
+  - term: WASI
+    definition: >-
+      WebAssembly System Interface — a standard API for WebAssembly modules to
+      access system resources like files, clocks, and network interfaces.
+      Spin uses WASI for component access to storage, configuration, and outbound
+      HTTP within defined permission boundaries.
+    synonyms: [WebAssembly System Interface]
+    related: [WebAssembly, Spin, Component]
+
+  - term: Key-Value Store
+    definition: >-
+      A Spin runtime API providing components with access to a persistent key-value
+      storage service. Components must declare key_value_stores access in spin.toml.
+      The default store is provided by the Spin runtime; production deployments use
+      backing services like Redis or cloud managed stores.
+    synonyms: [KV Store, Key Value Storage]
+    related: [Component, SQLite, Storage]
+
+  - term: SQLite
+    definition: >-
+      An embedded relational database accessible to Spin components via the SQLite
+      storage API. Components must declare sqlite_databases access in spin.toml.
+      Suitable for structured data within Spin applications.
+    related: [Component, Key-Value Store, Storage]
+
+  - term: Serverless AI
+    definition: >-
+      The Spin API for accessing AI inference models (e.g., Llama 2, CodeLlama)
+      directly within Spin components. Components declare ai_models access in
+      spin.toml and use the infer() SDK function. Supported by Fermyon Cloud
+      and SpinKube deployments.
+    synonyms: [Spin AI, LLM Inferencing]
+    related: [Component, Llama, ai_models]
+
+  - term: Outbound HTTP
+    definition: >-
+      The Spin API for making HTTP requests from within a component. Components
+      must declare allowed outbound hosts in spin.toml under allowed_outbound_hosts
+      to restrict egress to approved endpoints.
+    related: [Component, allowed_outbound_hosts, HTTP Trigger]
+
+  - term: Variable
+    definition: >-
+      A named configuration value for a Spin application that can be required or
+      optional, with an optional default value. Secret variables are masked in
+      logs. Variables are injected into components via the variables SDK API.
+    synonyms: [Config Variable, App Variable]
+    related: [spin.toml, Component, Secret]
+
+  - term: SpinKube
+    definition: >-
+      A Kubernetes operator and runtime for deploying Spin applications natively
+      on Kubernetes using the SpinApp CRD and containerd-shim-spin. Enables
+      running Spin Wasm workloads alongside traditional container workloads.
+    related: [Kubernetes, Spin, Deployment]
+
+  - term: Fermyon Cloud
+    definition: >-
+      The managed cloud hosting platform by Fermyon for running Spin applications.
+      Provides zero-configuration deployment via spin deploy with built-in key-value
+      storage, SQLite, AI inferencing, and custom domains.
+    synonyms: [Fermyon Platform]
+    related: [Spin, Deployment, Serverless]

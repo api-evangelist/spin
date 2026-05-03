@@ -1,0 +1,73 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "spin": "https://spinframework.dev/vocab/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "SpinApplication": "spin:Application",
+    "SpinComponent": "spin:Component",
+    "SpinVariable": "spin:Variable",
+
+    "spin_manifest_version": {
+      "@id": "spin:manifestVersion",
+      "@type": "xsd:integer"
+    },
+    "application": {
+      "@id": "spin:application",
+      "@type": "@id"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "schema:version",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "authors": {
+      "@id": "schema:author",
+      "@container": "@list"
+    },
+    "component": {
+      "@id": "spin:component",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "spin:source",
+      "@type": "xsd:string"
+    },
+    "allowed_outbound_hosts": {
+      "@id": "spin:allowedOutboundHosts",
+      "@container": "@list"
+    },
+    "key_value_stores": {
+      "@id": "spin:keyValueStores",
+      "@container": "@list"
+    },
+    "sqlite_databases": {
+      "@id": "spin:sqliteDatabases",
+      "@container": "@list"
+    },
+    "ai_models": {
+      "@id": "spin:aiModels",
+      "@container": "@list"
+    },
+    "variables": {
+      "@id": "spin:variables",
+      "@type": "@id"
+    },
+    "required": {
+      "@id": "spin:required",
+      "@type": "xsd:boolean"
+    },
+    "secret": {
+      "@id": "spin:secret",
+      "@type": "xsd:boolean"
+    }
+  }
+}

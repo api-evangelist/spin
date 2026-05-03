@@ -1,0 +1,66 @@
+extends: spectral:oas
+rules:
+  spin-operation-summary-title-case:
+    description: All operation summaries must use Title Case
+    message: Operation summary "{{value}}" should be in Title Case
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9]*([ ][A-Z][a-zA-Z0-9]*)*$"
+
+  spin-tags-title-case:
+    description: All tags must use Title Case
+    message: Tag "{{value}}" should be in Title Case
+    severity: warn
+    given: "$.tags[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9]*([ ][A-Z][a-zA-Z0-9]*)*$"
+
+  spin-operation-id:
+    description: All operations must have an operationId
+    message: Operation must have an operationId
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: truthy
+
+  spin-operation-tags:
+    description: All operations must have at least one tag
+    message: Operation must have at least one tag
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: truthy
+
+  spin-operation-description:
+    description: All operations should have a description
+    message: Operation should have a description
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: description
+      function: truthy
+
+  spin-schema-descriptions:
+    description: All schema properties should have descriptions
+    message: Schema property should have a description
+    severity: warn
+    given: "$.components.schemas[*].properties[*]"
+    then:
+      field: description
+      function: truthy
+
+  spin-info-contact:
+    description: API info should include contact details
+    message: API info should have a contact object with url
+    severity: warn
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy
