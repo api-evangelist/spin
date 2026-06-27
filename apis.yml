@@ -125,7 +125,7 @@ common:
     url: https://github.com/fermyon
   - type: GitHubRepository
     url: https://github.com/fermyon/spin
-  - type: Releases
+  - type: ReleaseNotes
     url: https://github.com/fermyon/spin/releases
   - type: RoadMap
     url: https://github.com/fermyon/spin/blob/main/ROADMAP.md
