@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: spinframework.dev
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 19 04:44:42 2026 GMT
+  hsts: false
+domains:
+- domain: spinframework.dev
+  dnssec: true
+  caa:
+  - cloud-loadbalancer.fermyon.com.
+  - tf-lb-20230512100548813600000002-56f33b69e309d1c9.elb.us-east-1.amazonaws.com.
+  spf: false
+  dmarc: false
