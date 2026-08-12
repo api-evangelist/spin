@@ -119,6 +119,9 @@ apis:
       - type: GitHubRepository
         url: https://github.com/fermyon/spin
 common:
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/fermyon/spin/blob/main/LICENSE
   - type: DomainSecurity
     url: security/spin-domain-security.yml
   - type: LinkedIn
