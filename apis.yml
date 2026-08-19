@@ -29,7 +29,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/spin/refs/heads/main/apis.yml
 created: '2026-03-26'
 modified: '2026-05-02'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: spin:spin-http-trigger-api
     name: Spin HTTP Trigger API
