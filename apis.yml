@@ -21,6 +21,11 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/spin.png
 tags:
+  - Cloud-Native
+  - Microservices
+  - Serverless
+  - WebAssembly
+tags_raw:
   - Cloud Native
   - Microservices
   - Serverless
@@ -92,6 +97,11 @@ apis:
       Supported on Fermyon Cloud and SpinKube deployments.
     humanURL: https://spinframework.dev/v3/serverless-ai-tutorial
     tags:
+      - Artificial Intelligence
+      - LLM
+      - Machine-Learning
+      - WebAssembly
+    tags_raw:
       - AI
       - LLM
       - Machine Learning
