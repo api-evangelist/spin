@@ -7,6 +7,18 @@ description: >-
   and run on any platform that supports the Spin runtime including local dev environments,
   Kubernetes (via SpinKube), and Fermyon Cloud.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -129,6 +141,14 @@ apis:
       - type: GitHubRepository
         url: https://github.com/fermyon/spin
 common:
+  - type: IssueTracker
+    url: https://github.com/fermyon/spin/issues
+  - type: SecurityPolicy
+    url: https://github.com/spinframework/spin/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/spinframework/spin/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/spinframework/spin/blob/main/CONTRIBUTING.md
   - type: License
     name: Apache-2.0
     url: https://github.com/fermyon/spin/blob/main/LICENSE
