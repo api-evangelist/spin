@@ -74,6 +74,10 @@ apis:
       Redis, or cloud-managed storage depending on the deployment target.
     humanURL: https://spinframework.dev/v3/kv-store-api
     tags:
+      - Key-Value Store
+      - Storage
+      - WebAssembly
+    tags_raw:
       - Key-Value
       - Storage
       - WebAssembly
@@ -111,13 +115,14 @@ apis:
     tags:
       - Artificial Intelligence
       - LLM
-      - Machine-Learning
+      - Machine Learning
       - WebAssembly
     tags_raw:
       - AI
       - LLM
       - Machine Learning
       - WebAssembly
+      - Machine-Learning
     properties:
       - type: Documentation
         url: https://spinframework.dev/v3/serverless-ai-tutorial
