@@ -66,83 +66,144 @@
 
 Spin is an open source framework by Fermyon for building and running fast, secure, and composable cloud microservices with WebAssembly. Spin provides a developer experience for creating event-driven serverless applications that compile to WebAssembly and run on any platform that supports the Spin runtime including local dev environments, Kubernetes (via SpinKube), and Fermyon Cloud.
 
-## APIs
+**Areas:** Cloud-Native · Microservices · Serverless · WebAssembly
 
-### Spin HTTP Trigger API
+## Spin on APIs.io
 
-Handles incoming HTTP requests routed to Spin components. Supported via the Spin SDK in Rust, Go, Python, JavaScript, and other WASI-compatible languages.
+Everything profiled for Spin is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/spin/](https://apis.io/providers/spin/)** — or go straight to one of the APIs or properties below.
 
-- **Documentation:** https://spinframework.dev/v3/http-trigger
+### APIs (5)
 
-### Spin Key-Value Store API
+- [Spin HTTP Trigger API](https://apis.io/apis/spin/spin-http-trigger-api/) — The Spin HTTP Trigger API handles incoming HTTP requests and routes them to the appropriate Spin component. Components receive an HTTP request object and…
+- [Spin Key-Value Store API](https://apis.io/apis/spin/spin-key-value-api/) — The Spin Key-Value Store API provides Spin components with access to a persistent key-value storage service. Components read, write, and delete key-value…
+- [Spin SQLite API](https://apis.io/apis/spin/spin-sqlite-api/) — The Spin SQLite API provides Spin components with access to an embedded relational database. Components can execute SQL queries and statements using the…
+- [Spin Serverless AI API](https://apis.io/apis/spin/spin-serverless-ai-api/) — The Spin Serverless AI API enables Spin components to run AI inference using built-in language model support (Llama 2, CodeLlama, etc.) via the Spin SDK's…
+- [Spin Variables API](https://apis.io/apis/spin/spin-variables-api/) — The Spin Variables API provides runtime access to application configuration variables defined in spin.toml. Variables can be required or optional with…
 
-Provides Spin components with access to persistent key-value storage. Backed by in-memory, Redis, or cloud-managed stores depending on deployment target.
+### Published properties
 
-- **Documentation:** https://spinframework.dev/v3/kv-store-api
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Spin SQLite API
+#### JSON Schema (1)
 
-Provides Spin components with access to an embedded relational database for structured data persistence.
+The data models the API reads and writes.
 
-- **Documentation:** https://spinframework.dev/v3/sqlite-api
+- [Spin Application Manifest](https://apis.io/schemas/spin/spin-manifest/)
 
-### Spin Serverless AI API
+#### JSON Structure (1)
 
-Enables Spin components to run AI inference using built-in language model support (Llama 2, CodeLlama) via the Spin SDK.
+Data models expressed in JSON Structure.
 
-- **Documentation:** https://spinframework.dev/v3/serverless-ai-tutorial
+- [Spin Manifest Structure](https://apis.io/json-structure/spin/spin-manifest-structure/)
 
-### Spin Variables API
+#### JSON-LD (1)
 
-Provides runtime access to application configuration variables defined in spin.toml, with support for secrets and configurable providers.
+Linked-data contexts for the provider's vocabulary.
 
-- **Documentation:** https://spinframework.dev/v3/variables
+- [Spin Context](https://apis.io/jsonld/spin/spin-context/)
 
-## Spectral Rules
+#### Vocabulary (1)
 
-| Ruleset | File |
-|---------|------|
-| Spin Rules | [rules/spin-rules.yml](rules/spin-rules.yml) |
+The provider's domain terms, defined.
 
-## JSON Schema
+- [Spin Vocabulary](https://apis.io/vocabularies/spin/spin-vocabulary/)
 
-| Schema | File |
-|--------|------|
-| Spin Application Manifest | [json-schema/spin-manifest.json](json-schema/spin-manifest.json) |
+#### Examples (1)
 
-## JSON Structure
+Example requests and responses.
 
-| Structure | File |
-|-----------|------|
-| Spin Manifest | [json-structure/spin-manifest-structure.json](json-structure/spin-manifest-structure.json) |
+- [Spin Manifest Example](https://apis.io/examples/spin/spin-manifest-example/)
 
-## JSON-LD
+#### Governance rules (2)
 
-| Context | File |
-|---------|------|
-| Spin Context | [json-ld/spin-context.jsonld](json-ld/spin-context.jsonld) |
+Spectral rulesets for the provider's contracts.
 
-## Examples
+- [Spin — jsonschema rules](https://apis.io/rules/spin/spin-jsonschema-spectral-rules/)
+- [Spin API Rules](https://apis.io/rules/spin/spin-rules/)
 
-| Example | File |
-|---------|------|
-| Spin Manifest | [examples/spin-manifest-example.json](examples/spin-manifest-example.json) |
+#### Security (1)
 
-## Vocabulary
+Authentication, trust centre, and vulnerability disclosure.
 
-| Vocabulary | File |
-|------------|------|
-| Spin Vocabulary | [vocabulary/spin-vocabulary.yml](vocabulary/spin-vocabulary.yml) |
+- [Spin Domain Security](https://apis.io/security/spin/spin-domain-security/)
 
-## Links
+#### Plans and pricing (1)
 
-- **Website:** https://spinframework.dev/
-- **Documentation:** https://spinframework.dev/v3/
-- **Quickstart:** https://spinframework.dev/v3/quickstart
-- **GitHub (Fermyon Org):** https://github.com/fermyon
-- **GitHub (Spin Repo):** https://github.com/fermyon/spin
-- **Releases:** https://github.com/fermyon/spin/releases
-- **Roadmap:** https://github.com/fermyon/spin/blob/main/ROADMAP.md
-- **Fermyon Cloud:** https://www.fermyon.com/
-- **Discord:** https://discord.gg/AAFNfS7NGf
-- **Blog:** https://www.fermyon.com/blog
+Published plans, tiers and prices.
+
+- [Spin Plans Pricing](https://apis.io/plans/spin/spin-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Spin Rate Limits](https://apis.io/rate-limits/spin/spin-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Spin Finops](https://apis.io/finops/spin/spin-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://spinframework.dev/)
+- [Documentation](https://spinframework.dev/v3/)
+- [Getting started](https://spinframework.dev/v3/quickstart)
+- [Blog](https://www.fermyon.com/blog)
+- [GitHub](https://github.com/fermyon)
+
+## API Evangelist rating
+
+**Kin Score 28.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 53.6 |
+| Contract quality | 10.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 15.5 |
+| Access clarity | 7.9 |
+
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/spin/](https://apis.io/providers/spin/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Spin: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/spin/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
